@@ -17,6 +17,8 @@ create table denied_claims (
   cpt_codes text[] not null,
   billed_amount numeric(12, 2) not null,
   payer_name text not null,
+  plan_type text not null default 'unknown'
+    check (plan_type in ('erisa', 'aca_individual', 'medicare_advantage', 'unknown')),
   carc_code text not null,
   rarc_code text,
   denial_reason text not null,

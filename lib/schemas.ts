@@ -72,6 +72,8 @@ export const ValidatedPolicyClauseSchema = PolicyClauseSchema.extend({
 export const ValidatedAnalysisSchema = AnalysisSchema.extend({
   policy_clause: ValidatedPolicyClauseSchema.nullable(),
   evidence: z.array(ValidatedEvidenceSchema),
+  /** Sentences removed because clinical atoms were not in validated evidence. */
+  letter_warnings: z.array(z.string()).default([]),
 });
 
 export type ValidatedAnalysis = z.infer<typeof ValidatedAnalysisSchema>;

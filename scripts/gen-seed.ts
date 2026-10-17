@@ -47,7 +47,7 @@ function main() {
 
   for (const c of claims) {
     lines.push(
-      `insert into denied_claims (id, patient_alias, cpt_codes, billed_amount, payer_name, carc_code, rarc_code, denial_reason, denied_at, status, policy_id) values (${lit(c.id)}, ${lit(c.patient_alias)}, ${lit(c.cpt_codes)}, ${lit(c.billed_amount)}, ${lit(c.payer_name)}, ${lit(c.carc_code)}, ${lit(c.rarc_code)}, ${lit(c.denial_reason)}, ${lit(c.denied_at)}, ${lit(c.status)}, ${lit(c.policy_id)});`,
+      `insert into denied_claims (id, patient_alias, cpt_codes, billed_amount, payer_name, plan_type, carc_code, rarc_code, denial_reason, denied_at, status, policy_id) values (${lit(c.id)}, ${lit(c.patient_alias)}, ${lit(c.cpt_codes)}, ${lit(c.billed_amount)}, ${lit(c.payer_name)}, ${lit(c.plan_type)}, ${lit(c.carc_code)}, ${lit(c.rarc_code)}, ${lit(c.denial_reason)}, ${lit(c.denied_at)}, ${lit(c.status)}, ${lit(c.policy_id)});`,
     );
   }
   lines.push("");

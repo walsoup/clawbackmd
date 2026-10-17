@@ -18,7 +18,7 @@ const STATUS_LABEL: Record<string, string> = {
   denied: "Denied",
   analyzed: "Reviewed",
   appeal_ready: "Appeal ready",
-  uphold: "Uphold",
+  uphold: "Query attending",
 };
 
 function padIndex(i: number) {

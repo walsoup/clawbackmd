@@ -11,7 +11,7 @@ import {
 import { LLMError, runAnalysis } from "@/lib/pipeline";
 import { verdictToStatus, type Analysis, type ValidatedAnalysis } from "@/lib/schemas";
 import { validateAnalysis } from "@/lib/validate";
-
+import type { PlanType } from "@/lib/regulations";
 
 function newAppealId() {
   return `APL-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
@@ -41,6 +41,7 @@ export async function POST(req: Request) {
     await deactivateAppeals(claimId);
 
     try {
+      const planType = (claim.plan_type ?? "unknown") as PlanType;
       const result = await runAnalysis({
         claim: {
           id: claim.id,
@@ -48,6 +49,7 @@ export async function POST(req: Request) {
           cpt_codes: claim.cpt_codes,
           billed_amount: Number(claim.billed_amount),
           payer_name: claim.payer_name,
+          plan_type: planType,
           carc_code: claim.carc_code,
           rarc_code: claim.rarc_code,
           denial_reason: claim.denial_reason,
@@ -107,6 +109,7 @@ export async function POST(req: Request) {
       }
 
       const rawAnalysis = peek.analysis as unknown as Analysis;
+      const planType = (claim.plan_type ?? "unknown") as PlanType;
       const validated = validateAnalysis(
         rawAnalysis,
         notes.map((n) => ({
@@ -116,6 +119,16 @@ export async function POST(req: Request) {
         })),
         { policy_code: policy.policy_code, body: policy.body },
         allowedPolicyCodes,
+        {
+          planType,
+          claimFacts: {
+            id: claim.id,
+            patient_alias: claim.patient_alias,
+            cpt_codes: claim.cpt_codes,
+            carc_code: claim.carc_code,
+            denial_reason: claim.denial_reason,
+          },
+        },
       );
 
       const cached = await activateCachedAppeal(claimId, validated.analysis);

@@ -21,6 +21,20 @@ export type AnalysisContext = {
   extraCitationAllow?: string[];
 };
 
+function validateOpts(ctx: AnalysisContext) {
+  return {
+    extraCitationAllow: ctx.extraCitationAllow,
+    planType: ctx.claim.plan_type ?? "unknown",
+    claimFacts: {
+      id: ctx.claim.id,
+      patient_alias: ctx.claim.patient_alias,
+      cpt_codes: ctx.claim.cpt_codes,
+      carc_code: ctx.claim.carc_code,
+      denial_reason: ctx.claim.denial_reason,
+    },
+  } as const;
+}
+
 export type PipelineResult = {
   analysis: ValidatedAnalysis;
   model: string;
@@ -72,7 +86,7 @@ export async function runAnalysis(
       ctx.notes,
       ctx.policy,
       ctx.allowedPolicyCodes,
-      ctx.extraCitationAllow,
+      validateOpts(ctx),
     );
   } catch (e) {
     // Zod failure → retry
@@ -90,7 +104,7 @@ export async function runAnalysis(
       ctx.notes,
       ctx.policy,
       ctx.allowedPolicyCodes,
-      ctx.extraCitationAllow,
+      validateOpts(ctx),
     );
   }
 
@@ -113,7 +127,7 @@ export async function runAnalysis(
         ctx.notes,
         ctx.policy,
         ctx.allowedPolicyCodes,
-        ctx.extraCitationAllow,
+        validateOpts(ctx),
       );
     } catch (e) {
       // Keep first validation result if retry itself fails parsing

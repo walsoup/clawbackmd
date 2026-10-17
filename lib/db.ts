@@ -41,6 +41,7 @@ export type DbClaim = {
   cpt_codes: string[];
   billed_amount: number;
   payer_name: string;
+  plan_type?: string;
   carc_code: string;
   rarc_code: string | null;
   denial_reason: string;

@@ -108,6 +108,7 @@ function enrich(
     cpt_codes: c.cpt_codes,
     billed_amount: Number(c.billed_amount),
     payer_name: c.payer_name,
+    plan_type: c.plan_type ?? "unknown",
     carc_code: c.carc_code,
     rarc_code: c.rarc_code,
     denial_reason: c.denial_reason,
@@ -137,6 +138,7 @@ type ClaimLike = {
   cpt_codes: string[];
   billed_amount: number | string;
   payer_name: string;
+  plan_type?: string;
   carc_code: string;
   rarc_code: string | null;
   denial_reason: string;

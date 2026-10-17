@@ -87,7 +87,15 @@ export function buildSimulateFallback(args: {
     [{ id: noteId, text: noteText, authored_at: noteAt }],
     { policy_code: policyCode, body: policyText },
     args.allowedPolicyCodes,
-    [policyCode],
+    {
+      extraCitationAllow: [policyCode],
+      planType: "unknown",
+      claimFacts: {
+        id: "SIM-CLAIM",
+        denial_reason: denialReason,
+        carc_code: "CO-50",
+      },
+    },
   );
   return validated.analysis;
 }

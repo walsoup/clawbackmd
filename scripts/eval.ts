@@ -27,6 +27,7 @@ async function main() {
           cpt_codes: claim.cpt_codes,
           billed_amount: claim.billed_amount,
           payer_name: claim.payer_name,
+          plan_type: claim.plan_type,
           carc_code: claim.carc_code,
           rarc_code: claim.rarc_code,
           denial_reason: claim.denial_reason,

@@ -47,9 +47,12 @@ Next.js (App Router, TypeScript), Tailwind + Linen tokens, lucide-react, in-memo
 Enforced in code ([`lib/validate.ts`](lib/validate.ts)):
 
 1. Evidence and policy quotes must be verbatim substrings (exact, then whitespace-normalized).
-2. Retry once on validation failure, then drop bad items.
-3. Force `verdict: "weak"` when nothing valid survives.
-4. Citations only from DB policy codes + [`lib/regulations.ts`](lib/regulations.ts).
+2. Letter sentences with clinical atoms (labs, grades, durations, CPTs, etc.) must appear in validated evidence / claim facts — ungrounded sentences are stripped and warned.
+3. Retry once on validation failure, then drop bad items.
+4. Force `verdict: "weak"` when nothing valid survives.
+5. LLM may cite **policy codes only**. CFR statutes are attached server-side from `plan_type` ([`lib/regulations.ts`](lib/regulations.ts)) — never invented by the model.
+6. `uphold_denial` means **documentation gap — query attending**, not auto write-off.
+7. Dual clinical + billing review log in the UI is a **demo attestation**, not an e-signature / NPI.
 
 ## Scripts
 

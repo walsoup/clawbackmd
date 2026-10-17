@@ -6,6 +6,8 @@
  * All payers, patients, and claims are fictional / synthetic.
  */
 
+import type { PlanType } from "@/lib/regulations";
+
 export type SeedPolicy = {
   id: string;
   payer: string;
@@ -20,6 +22,8 @@ export type SeedClaim = {
   cpt_codes: string[];
   billed_amount: number;
   payer_name: string;
+  /** Drives which CFR (if any) the server may attach — never invents statutes. */
+  plan_type: PlanType;
   carc_code: string;
   rarc_code: string | null;
   denial_reason: string;
@@ -126,6 +130,7 @@ export const SEED_CLAIMS: SeedClaim[] = [
     cpt_codes: ["27447"],
     billed_amount: 34500,
     payer_name: "Meridian Health – AutoReview",
+    plan_type: "erisa",
     carc_code: "CO-50",
     rarc_code: "N115",
     denial_reason:
@@ -141,6 +146,7 @@ export const SEED_CLAIMS: SeedClaim[] = [
     cpt_codes: ["99291"],
     billed_amount: 18900,
     payer_name: "Corvalis Mutual – ClaimSense AI",
+    plan_type: "aca_individual",
     carc_code: "CO-150",
     rarc_code: "N362",
     denial_reason:
@@ -156,6 +162,7 @@ export const SEED_CLAIMS: SeedClaim[] = [
     cpt_codes: ["70553"],
     billed_amount: 6400,
     payer_name: "Meridian Health – AutoReview",
+    plan_type: "erisa",
     carc_code: "CO-50",
     rarc_code: "N115",
     denial_reason:
@@ -171,6 +178,7 @@ export const SEED_CLAIMS: SeedClaim[] = [
     cpt_codes: ["33249"],
     billed_amount: 42000,
     payer_name: "Aether Guard Life – PriorAuthX",
+    plan_type: "medicare_advantage",
     carc_code: "CO-50",
     rarc_code: "N115",
     denial_reason:
@@ -186,6 +194,7 @@ export const SEED_CLAIMS: SeedClaim[] = [
     cpt_codes: ["72148"],
     billed_amount: 2100,
     payer_name: "Corvalis Mutual – ClaimSense AI",
+    plan_type: "aca_individual",
     carc_code: "CO-50",
     rarc_code: "N115",
     denial_reason:

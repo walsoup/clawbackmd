@@ -16,13 +16,14 @@ export function P2PPanel({
   }
 
   const p2p = analysis.p2p;
+  const uphold = analysis.verdict === "uphold_denial";
 
   return (
     <div className="flex h-full flex-col">
       <DraftBanner />
       <div className="flex items-center gap-2 py-3">
         <span className="ln-label text-[var(--ln-text)]">
-          Peer-to-peer notes
+          {uphold ? "Attending huddle notes" : "Peer-to-peer notes"}
         </span>
         {isCached && (
           <span className="ln-caption rounded-[var(--ln-pill-radius)] bg-[var(--ln-container-low)] px-2 py-0.5 text-[var(--ln-muted)]">
@@ -31,9 +32,33 @@ export function P2PPanel({
         )}
       </div>
 
+      {uphold && (
+        <div className="mb-3 rounded-[var(--ln-pill-radius)] bg-[var(--ln-rec-soft)] px-3 py-2.5 ln-body-sec text-[var(--ln-rec)]">
+          Internal only — documentation gap. Query the attending before
+          write-off or external peer-to-peer.
+        </div>
+      )}
+
       <div className="flex-1 space-y-1 overflow-y-auto pb-6">
         <SectionTitle>Opening</SectionTitle>
         <p className="ln-body text-[var(--ln-text)]">{p2p.opening}</p>
+
+        {analysis.evidence.length > 0 && (
+          <>
+            <SectionTitle>Chart quotes to read aloud</SectionTitle>
+            <ul className="list-disc space-y-2 pl-5 ln-body-sec text-[var(--ln-text-secondary)]">
+              {analysis.evidence.map((e, i) => (
+                <li key={`${e.note_id}-${i}`}>
+                  <span className="ln-mono-tiny text-[var(--ln-primary)]">
+                    {e.note_id}
+                  </span>
+                  {" — "}
+                  <span className="text-[var(--ln-text)]">&ldquo;{e.quote}&rdquo;</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         <SectionTitle>Talking points</SectionTitle>
         <ul className="list-disc space-y-1.5 pl-5 ln-body text-[var(--ln-text)]">

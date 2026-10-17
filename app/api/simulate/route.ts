@@ -53,6 +53,7 @@ export async function POST(req: Request) {
         cpt_codes: ["SIM"],
         billed_amount: 0,
         payer_name: body.payer?.trim() || "Example Payer",
+        plan_type: "unknown",
         carc_code: body.carc?.trim() || "CO-50",
         rarc_code: null,
         denial_reason: denialReason,

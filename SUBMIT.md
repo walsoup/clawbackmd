@@ -9,19 +9,17 @@
 1. `npm install && npm test && npm run build`
 2. `npm run dev` → open http://localhost:3000
 3. Click **Generate draft** on CLM-001…004 (cached fallback if Ollama is off)
-4. Open **CLM-005** — should say uphold / do not appeal
-5. Edit a letter section + **Approve & sign**
+4. Open **CLM-005** — should say **Query attending** / documentation gap (not write-off)
+5. Edit a letter section → log **clinical** and **billing** review (demo attestation only)
 6. **Custom denial** → load a template → Run analysis
 
 ## DEV post
 
-- Draft is staged via DevRelay (unpublished). Publish from the `edit_url`.
+- Draft (unpublished): https://dev.to/walsoup/clawbackmd-local-gemma-drafts-for-ai-assisted-insurance-denials-3k9b-temp-slug-358935/edit
 - Required tag: `hf26challenge`
-- Say who would pay (hospital billing / RCM), why open/local Gemma matters (PHI stays local), link the repo, show a demo GIF/screenshot.
+- Cover: who would pay (hospital billing / RCM), why local Gemma matters (PHI stays on the laptop), repo link, screenshot or GIF.
+- Publish only when you are ready — do not leave the temp-slug URL in the wild.
 
 ## Repo
 
-```bash
-git add -A && git status
-# commit when ready, then push to GitHub and paste the URL into the DEV post
-```
+https://github.com/walsoup/clawbackmd

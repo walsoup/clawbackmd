@@ -71,7 +71,7 @@ export const CACHED_APPEALS: CachedAppeal[] = [
             body: "We request overturn of the denial and payment for CPT 27447 as billed. This letter is a DRAFT pending physician and billing review.",
           },
         ],
-        citations: ["ORTHO-112", "29 CFR 2560.503-1"],
+        citations: ["ORTHO-112"],
       },
       p2p: {
         opening:
@@ -158,7 +158,7 @@ export const CACHED_APPEALS: CachedAppeal[] = [
             body: "Restore CPT 99291 and reverse the downcode. DRAFT — requires physician/billing review.",
           },
         ],
-        citations: ["CC-201", "45 CFR 147.136"],
+        citations: ["CC-201"],
       },
       p2p: {
         opening:
@@ -231,7 +231,7 @@ export const CACHED_APPEALS: CachedAppeal[] = [
             body: "Overturn the denial and pay CPT 70553. DRAFT pending physician/billing review.",
           },
         ],
-        citations: ["NEURO-09", "29 CFR 2560.503-1"],
+        citations: ["NEURO-09"],
       },
       p2p: {
         opening:
@@ -297,32 +297,32 @@ export const CACHED_APPEALS: CachedAppeal[] = [
         sections: [
           {
             heading: "Re: Appeal of Denial — CPT 33249 / Claim CLM-004",
-            body: "We appeal the CO-50 denial alleging LVEF criteria were not met. The record shows LVEF 28% at day 52 post-MI, ≥3 months of GDMT, and NYHA II — fully meeting CARD-33.",
+            body: "We appeal the CO-50 denial alleging LVEF criteria were not met. The record shows LVEF 28% at 52 days post-MI, 4 months of GDMT, and NYHA II — meeting CARD-33 as documented.",
           },
           {
             heading: "Criteria mapping",
-            body: "LVEF ≤ 35%: 28% on echo. Timing ≥ 40 days post-MI: echo at day 52. GDMT ≥ 3 months: 4 months documented. Functional class: NYHA II.",
+            body: "LVEF 28% on echo. Timing: echo at 52 days post-MI. GDMT: 4 months documented. Functional class: NYHA II.",
           },
           {
             heading: "Request",
             body: "Overturn the denial and pay CPT 33249. DRAFT — physician/billing review required.",
           },
         ],
-        citations: ["CARD-33", "42 CFR 422.101(b)(6)"],
+        citations: ["CARD-33"],
       },
       p2p: {
         opening:
-          "CARD-33 primary-prevention ICD — payer alleged LVEF criteria unmet, but echo shows 28% at day 52 with 4 months GDMT and NYHA II.",
+          "CARD-33 primary-prevention ICD — payer alleged LVEF criteria unmet, but echo shows 28% at 52 days with 4 months GDMT and NYHA II.",
         talking_points: [
-          "LVEF 28% — well below the ≤35% threshold.",
-          "Echo timed at 52 days post-MI (≥40 days).",
+          "LVEF 28% on biplane Simpson echo.",
+          "Echo timed at 52 days post-MI.",
           "4 months continuous GDMT; NYHA class II.",
         ],
         likely_pushback: [
           {
-            objection: "Need LVEF ≤30% for primary prevention.",
+            objection: "Need a lower LVEF threshold for primary prevention.",
             response:
-              "CARD-33 states LVEF ≤ 35%; 28% satisfies the ejection-fraction requirement.",
+              "Documented LVEF 28% at 52 days post-MI with 4 months GDMT and NYHA II meets the CARD-33 findings cited in the policy clause.",
           },
         ],
         ask: "Please overturn the CO-50 and authorize the ICD implant claim.",
@@ -365,34 +365,36 @@ export const CACHED_APPEALS: CachedAppeal[] = [
         },
       ],
       gaps: [
+        "Documentation gap — query the attending before write-off or external appeal.",
         "No 6-week conservative care course documented before MRI order.",
         "No red-flag features (progressive deficit, saddle anesthesia, bowel/bladder dysfunction, malignancy, infection, fracture) documented.",
       ],
       letter: {
         sections: [
           {
-            heading: "Internal assessment — do not appeal",
-            body: "Denial appears valid under SPINE-04. Chart shows 9 days of nonspecific low back pain, normal neuro exam, and no red flags. MRI at day 9 does not meet medical necessity. Recommend accepting denial or obtaining additional documentation only if red flags were omitted from the note.",
+            heading: "Internal assessment — documentation gap / query attending",
+            body: "Current chart under SPINE-04 shows 9 days of nonspecific low back pain, normal neuro exam, and no red flags. MRI at day 9 does not meet documented medical necessity. Query the attending for omitted red-flag or conservative-care documentation before any write-off. Do not treat this as an automatic abandon.",
           },
         ],
         citations: ["SPINE-04"],
       },
       p2p: {
         opening:
-          "Internal only: this denial appears correct. Peer-to-peer not recommended unless chart is incomplete.",
+          "Internal huddle only — documentation appears insufficient to overturn. Query the attending before write-off or external peer-to-peer.",
         talking_points: [
           "Symptom duration 9 days — far below 6-week requirement.",
           "Normal neurologic exam; no red flags documented.",
           "SPINE-04 non-coverage language matches this presentation.",
+          "Ask attending whether red flags or prior conservative care exist outside this note.",
         ],
         likely_pushback: [
           {
-            objection: "N/A — we are not appealing.",
+            objection: "Billing wants to write this off now.",
             response:
-              "If new red-flag documentation surfaces, reopen; otherwise uphold.",
+              "Pause. Query the attending for omitted documentation first; only then decide appeal vs acceptance.",
           },
         ],
-        ask: "No external ask — recommend upholding denial.",
+        ask: "Query the attending for missing documentation before peer-to-peer or write-off.",
       },
     },
   },

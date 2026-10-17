@@ -51,8 +51,9 @@ export function EvidenceMatrix({
 
       {uphold && (
         <div className="mt-3 rounded-[var(--ln-pill-radius)] bg-[var(--ln-rec-soft)] px-3 py-2.5 ln-body-sec text-[var(--ln-rec)]">
-          Denial appears valid — do not appeal. Chart does not meet the cited
-          policy requirement.
+          Documentation gap — query the attending before write-off. Chart does
+          not currently meet the cited policy requirement; this is not an
+          automatic abandon.
         </div>
       )}
 
@@ -146,7 +147,7 @@ function VerdictChip({
 }) {
   const label =
     verdict === "uphold_denial"
-      ? "Uphold denial"
+      ? "Query attending"
       : verdict === "appeal"
         ? "Appeal"
         : "Weak";
