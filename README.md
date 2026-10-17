@@ -1,6 +1,10 @@
 # ClawbackMD
 
+[![GitHub](https://img.shields.io/badge/github-walsoup%2Fclawbackmd-2D6A4F)](https://github.com/walsoup/clawbackmd)
+
 Draft appeals for AI-assisted insurance denials. Built for hospital billing review.
+
+**Hacktoberfest Week 2 (Side Hustle):** see [SUBMIT.md](./SUBMIT.md).
 
 **All data is synthetic.** Every letter is a **draft** requiring physician and billing review. Not medical or legal advice.
 
