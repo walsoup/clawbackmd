@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "agy": {
+      "source": "sparklingneuronics/sparkling-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/dispatch/skills/agy/SKILL.md",
+      "computedHash": "fe7020758b500f252dd6fdbe74fa7bc228a30a14837252ed3da31e09fedf6cb0"
+    }
+  }
+}

@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+/* Linen design tokens — ported from linen/tokens.json */
+:root {
+  --ln-bg: #faf9f6;
+  --ln-surface: #ffffff;
+  --ln-container: #e8f1ec;
+  --ln-container-low: #f1f5f2;
+  --ln-hairline: #e0e6e2;
+  --ln-text: #1f2421;
+  --ln-text-secondary: #526058;
+  --ln-muted: #8a9a90;
+  --ln-primary: #2d6a4f;
+  --ln-on-primary: #ffffff;
+  --ln-rec: #d47255;
+  --ln-rec-soft: #fbf0ec;
+  --ln-inactive: #d0d7d3;
+  --ln-scrim: rgba(31, 36, 33, 0.38);
+
+  --ln-screen-margin: 24px;
+  --ln-button-height: 46px;
+  --ln-button-radius: 23px;
+  --ln-pill-height: 36px;
+  --ln-pill-radius: 10px;
+  --ln-card-radius: 12px;
+  --ln-dialog-radius: 24px;
+  --ln-sheet-radius: 28px;
+
+  --background: var(--ln-bg);
+  --foreground: var(--ln-text);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ln-bg: var(--ln-bg);
+  --color-ln-surface: var(--ln-surface);
+  --color-ln-container: var(--ln-container);
+  --color-ln-container-low: var(--ln-container-low);
+  --color-ln-hairline: var(--ln-hairline);
+  --color-ln-text: var(--ln-text);
+  --color-ln-text-secondary: var(--ln-text-secondary);
+  --color-ln-muted: var(--ln-muted);
+  --color-ln-primary: var(--ln-primary);
+  --color-ln-on-primary: var(--ln-on-primary);
+  --color-ln-rec: var(--ln-rec);
+  --color-ln-rec-soft: var(--ln-rec-soft);
+  --color-ln-inactive: var(--ln-inactive);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--ln-bg);
+  color: var(--ln-text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ln-container);
+  color: var(--ln-text);
+}
+
+/* Type scale */
+.ln-display {
+  font-size: 44px;
+  line-height: 46px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+.ln-headline {
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.ln-title {
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.ln-body {
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 400;
+}
+.ln-body-sec {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.ln-caption {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+.ln-overline {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ln-text-secondary);
+}
+.ln-label {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+.ln-mono-hero {
+  font-family: var(--font-mono);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.ln-mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.ln-mono-sm {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.ln-mono-tiny {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Buttons — Linen pill shapes */
+.ln-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--ln-button-height);
+  padding: 0 22px;
+  border-radius: var(--ln-button-radius);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 120ms ease;
+}
+.ln-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.ln-btn:focus-visible {
+  outline: 2px solid var(--ln-primary);
+  outline-offset: 2px;
+}
+.ln-btn-primary {
+  background: var(--ln-primary);
+  color: var(--ln-on-primary);
+}
+.ln-btn-primary:hover:not(:disabled) {
+  opacity: 0.92;
+}
+.ln-btn-tonal {
+  background: var(--ln-container);
+  color: var(--ln-primary);
+}
+.ln-btn-tonal:hover:not(:disabled) {
+  background: #dce8e1;
+}
+.ln-btn-ghost {
+  background: var(--ln-surface);
+  color: var(--ln-text);
+  border: 1px solid var(--ln-hairline);
+}
+.ln-btn-ghost:hover:not(:disabled) {
+  background: var(--ln-container-low);
+}
+.ln-btn-rec {
+  background: var(--ln-rec);
+  color: var(--ln-on-primary);
+}
+.ln-btn-sm {
+  height: var(--ln-pill-height);
+  padding: 0 14px;
+  border-radius: var(--ln-pill-radius);
+  font-size: 13px;
+}
+
+.ln-hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--ln-hairline);
+  border: none;
+}
+
+.ln-field {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: var(--ln-pill-radius);
+  border: 1px solid var(--ln-hairline);
+  background: var(--ln-surface);
+  color: var(--ln-text);
+  font-size: 15px;
+  line-height: 21px;
+  outline: none;
+  resize: vertical;
+}
+.ln-field:focus {
+  border-color: var(--ln-primary);
+}
+.ln-field::placeholder {
+  color: var(--ln-muted);
+}
+
+mark.ln-mark {
+  background: var(--ln-container);
+  color: var(--ln-text);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .print-letter,
+  .print-letter * {
+    visibility: visible !important;
+  }
+  .print-letter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: white !important;
+    color: black !important;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+}
